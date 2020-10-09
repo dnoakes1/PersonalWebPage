@@ -20,7 +20,8 @@ body {
 	margin: 0;
 	background: #222;
 	font-family: 'Work Sans', sans-serif;
-	font-weight: 400;
+  font-weight: 400;
+  /* Padding: 20px; */
 }
 
 .content {
@@ -232,7 +233,7 @@ nav a:hover {
     background-color: thistle;
     float: left;
     padding: 10px;
-    height: 300px; /* Should be removed. Only for demonstration */
+    /* height: 300px; Should be removed. Only for demonstration */
   }
 /* 3 Part Container */
   .left {
@@ -273,6 +274,70 @@ nav a:hover {
     background-size: cover;
     background-attachment: fixed;
     height: 650px;
+}
+/* Portfolio Section */
+/* Center website
+.main {
+  max-width: 1000px;
+  margin: auto;
+} */
+
+/* Create three equal columns that floats next to each other */
+/* Add padding BETWEEN each column */
+h1 {
+  font-size: 50px;
+  word-break: break-all;
+}
+
+.row {
+  margin: 10px -16px;
+}
+
+.row,
+.row > .column {
+  padding: 8px;
+}
+
+.column1 {
+  float: left;
+  width: 33.33%;
+  display: none; /* Hide all elements by default */
+}
+
+/* Clear floats after rows */ 
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.content {
+  background-color: white;
+  padding: 10px;
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
 }
 
 /* Footer Section */
