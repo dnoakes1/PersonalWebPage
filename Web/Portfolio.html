@@ -1,91 +1,110 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Home Page</title>
+    <title>Portfolio</title>
     <meta charset="UTF-8">        
-    <link rel="stylesheet" href="C:\Users\Daniel\Documents\PersonalWebPage\Web\Assets\style.css">
+    <link rel="stylesheet" href="C:\Users\DanNo\Documents\PersonalWebPage\Web\Assets\style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+<!-- Navbar (sit on top) -->
+<header class="header1">
+    <h1 class="logo">Daniel Noakes</h1>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <nav>
+      <ul>
+        <li><a href="#Home">Home</a></li>
+        <li><a href="#About">About</a></li>
+        <li><a href="#Resume">Resume</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#Contact">Contact</a></li>
+      </ul>
+    </nav>
+    <label for="nav-toggle" class="nav-toggle-label">
+      <span></span>
+    </label>
+</header>
 
 <!-- MAIN (Center website) -->
 <div class="main">
 
-<h1>MYLOGO.COM</h1>
+<!-- <h1>MYLOGO.COM</h1> -->
 <hr>
+<div class="space"> 
 
-<h2>PORTFOLIO</h2>
+
+<h1 class="logo1">PORTFOLIO</h1>
 
 <div id="myBtnContainer">
-  <button class="btn active" onclick="filterSelection('all')"> Show all</button>
-  <button class="btn" onclick="filterSelection('nature')"> Nature</button>
-  <button class="btn" onclick="filterSelection('cars')"> Cars</button>
-  <button class="btn" onclick="filterSelection('people')"> People</button>
+  <button class="btn active" onclick="filterSelection('all')"><h3>Show all</h3></button>
+  <button class="btn" onclick="filterSelection('nature')"><h3>Spatial Analysis and Cartography</h3> </button>
+  <button class="btn" onclick="filterSelection('cars')"><h3>Programming</h3></button>
+  <button class="btn" onclick="filterSelection('people')"><h3>Java Script API and Web Design</h3></button>
 </div>
-
+</div>
 <!-- Portfolio Gallery Grid -->
 <div class="row">
   <div class="column nature">
-    <div class="content">
-      <img src="/w3images/mountains.jpg" alt="Mountains" style="width:100%">
+    <div class="content1">
+      <img src="C:/Users/DanNo/Documents/PersonalWebPage/Web/Images/BlowingMtns.jpg" alt="Mountains" style="width:100%">
       <h4>Mountains</h4>
       <p>Lorem ipsum dolor..</p>
     </div>
   </div>
   <div class="column nature">
-    <div class="content">
-    <img src="/w3images/lights.jpg" alt="Lights" style="width:100%">
+    <div class="content1">
+    <img src="C:/Users/DanNo/Documents/PersonalWebPage/Web/Images/BlowingMtns.jpg" alt="Lights" style="width:100%">
       <h4>Lights</h4>
       <p>Lorem ipsum dolor..</p>
     </div>
   </div>
   <div class="column nature">
-    <div class="content">
-    <img src="/w3images/nature.jpg" alt="Nature" style="width:100%">
+    <div class="content1">
+    <img src="C:/Users/DanNo/Documents/PersonalWebPage/Web/Images/BlowingMtns.jpg" alt="Nature" style="width:100%">
       <h4>Forest</h4>
       <p>Lorem ipsum dolor..</p>
     </div>
   </div>
   
   <div class="column cars">
-    <div class="content">
-      <img src="/w3images/cars1.jpg" alt="Car" style="width:100%">
+    <div class="content1">
+      <img src="C:/Users/DanNo/Documents/PersonalWebPage/Web/Images/BlowingMtns.jpg" alt="Car" style="width:100%">
       <h4>Retro</h4>
       <p>Lorem ipsum dolor..</p>
     </div>
   </div>
   <div class="column cars">
-    <div class="content">
-    <img src="/w3images/cars2.jpg" alt="Car" style="width:100%">
+    <div class="content1">
+    <img src="C:/Users/DanNo/Documents/PersonalWebPage/Web/Images/BlowingMtns.jpg" alt="Car" style="width:100%">
       <h4>Fast</h4>
       <p>Lorem ipsum dolor..</p>
     </div>
   </div>
   <div class="column cars">
-    <div class="content">
-    <img src="/w3images/cars3.jpg" alt="Car" style="width:100%">
+    <div class="content1">
+    <img src="C:/Users/DanNo/Documents/PersonalWebPage/Web/Images/BlowingMtns.jpg" alt="Car" style="width:100%">
       <h4>Classic</h4>
       <p>Lorem ipsum dolor..</p>
     </div>
   </div>
 
   <div class="column people">
-    <div class="content">
-      <img src="/w3images/people1.jpg" alt="Car" style="width:100%">
+    <div class="content1">
+      <img src="C:/Users/DanNo/Documents/PersonalWebPage/Web/Images/BlowingMtns.jpg" alt="Car" style="width:100%">
       <h4>Girl</h4>
       <p>Lorem ipsum dolor..</p>
     </div>
   </div>
   <div class="column people">
-    <div class="content">
-    <img src="/w3images/people2.jpg" alt="Car" style="width:100%">
+    <div class="content1">
+    <img src="C:/Users/DanNo/Documents/PersonalWebPage/Web/Images/BlowingMtns.jpg" alt="Car" style="width:100%">
       <h4>Man</h4>
       <p>Lorem ipsum dolor..</p>
     </div>
   </div>
   <div class="column people">
-    <div class="content">
-    <img src="/w3images/people3.jpg" alt="Car" style="width:100%">
+    <div class="content1">
+    <img src="C:/Users/DanNo/Documents/PersonalWebPage/Web/Images/BlowingMtns.jpg" alt="Car" style="width:100%">
       <h4>Woman</h4>
       <p>Lorem ipsum dolor..</p>
     </div>
@@ -141,6 +160,19 @@ for (var i = 0; i < btns.length; i++) {
   });
 }
 </script>
+
+<!-- Footer Section -->
+<!-- <footer id="Contact">
+  <div class="row" style="clear: both; text-align: center;"> -->
+      <!-- <div class="col-md-4"> -->
+              <!-- <p style="float: left">| PHONE: <b>(705) 716-4151</b> |</p>
+              <p style="float: right">| EMAIL: <b>dan.noakes@outlook.com</b> |</p> -->
+          <!-- <p style="text-align: center;">
+
+              <br><p>(705) 715-4151</p> | <p>dan.noakes@outlook.com </p>| <p><a href="...">LinkedIn</a></p>
+          </p>  -->
+  <!-- </div>
+</footer> -->
 
 </body>
 </html>
