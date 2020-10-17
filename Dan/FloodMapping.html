@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Halton Flood Mapping</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Satisfy" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Laura - v2.1.0
+  * Template URL: https://bootstrapmade.com/laura-free-creative-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top  d-flex justify-content-center align-items-center ">
+
+    <nav class="nav-menu d-none d-lg-block">
+      <ul>
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#resume">Resume</a></li>
+          <li><a href="index.html#portfolio">Portfolio</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+  
+      </ul>
+    </nav><!-- .nav-menu -->
+
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Portfolio Details</h2>
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li>Portfolio Details</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- Breadcrumbs Section -->
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section class="portfolio-details">
+      <div class="container">
+
+        <div class="portfolio-details-container">
+
+          <div class="owl-carousel portfolio-details-carousel">
+            <img src="assets/img/portfolio/OD_Halton.jpg" class="img-fluid" alt="">
+            <img src="assets/img/portfolio/FloodRisk_JSAPI3.PNG" class="img-fluid" alt="">
+            <img src="assets/img/portfolio/FloodRisk_JSAPI4.PNG" class="img-fluid" alt="">
+          </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+          <div class="portfolio-info">
+
+            <h3>Project information</h3>
+            <ul>
+              <li><strong>Category</strong>: JS API and ArcGIS Online Mapping</li>
+              <li><strong>Client</strong>: Halton Conservation Authority</li>
+              <li><strong>Project date</strong>: 01 March, 2020</li>
+              <!-- <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li> -->
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="portfolio-description">
+          <h2>Image Descriptions</h2>
+          <p>
+              1) This operations dashboard uses pre-processed data from a web map created in AGOL. The summarize within tool was used to find areas in square meters of building polygons that are within the flood buffer zones for 3 buffer distances: 10m, 30m, 50m. The Web Map displays the areas of risk associated with the total area of house polygons (in Sq. Meters) within a stretch of the river segment. This allows users to easily see what areas have a higher risk for a 10m, 30m, or 50m flood buffer around the river. Sub watersheds where symbolized to show each of the different watershed zones. This is for environmentalists or the conservation authority to see what watersheds have more risk of flood damage to buildings. When developing the Pie chart, I configured the category field to display the 7 largest Watersheds, opposed to all for simplicity and clarity. I also added functionality to the pie chart so users can click a pie segment and it will zoom to the watershed selected, flash, and display it on the map. It also shows a popup of information related to that area of watershed. Unclicking the pie segment brings the map back to the default extent.
+              <br>
+              <br>
+              2) Initially JavaScript 3.31 was used to compare with 4.14. It was determined that JS 4.14 had far better functionality and appeared less restrictive for coding in widgets such as scale bar, search bar, and on click address locator. The dashboard created with 3.31 is a simple interface that allows the user to click directly on the flood zones and watersheds to retrieve information about them. A div was used to segment the header, map area and legend.
+              <br>
+              <br>
+              3) JavaScript API 4.14 was found to be much easier to code and had helpful JavaScript tutorials. Firstly, a code was developed that inserted a legend with a scroll bar and a layers list that allows the user to toggle on and off the layers they want to see. Next, all the new widgets were inserted to the required and function area of the code for it to display properly. After this a popup widget was inserted to show the longitude and latitude, as well as the scale of the map which changes automatically as the cursor moves over the map. A search section was also created to allow the user to search their address and see if it is in a flood zone by referencing the Flood Risk Layer. Finally, the most useful part of the app was the onclick address locator coded so users can click an area anywhere in the flood area and receive the address and postal code of that area.
+          </p>
+        </div>
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+          <h3>Daniel Noakes</h3>
+          <p>GIS Applications Specialist and Data Analyst</p>
+          <div class="social-links">
+            <!-- <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+            <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a> -->
+            <a href="www.linkedin.com/in/daniel-noakes-2576401a7" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+          </div>
+          <div class="copyright">
+            &copy; Copyright <strong><span>Dan</span></strong>. All Rights Reserved
+          </div>
+          <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/laura-free-creative-bootstrap-theme/ -->
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> and edited by Daniel Noakes
+          </div>
+        </div>
+      </footer><!-- End Footer -->
+    
+      <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+    
+      <!-- Vendor JS Files -->
+      <script src="assets/vendor/jquery/jquery.min.js"></script>
+      <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+      <script src="assets/vendor/php-email-form/validate.js"></script>
+      <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+      <script src="assets/vendor/counterup/counterup.min.js"></script>
+      <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+      <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+      <script src="assets/vendor/venobox/venobox.min.js"></script>
+    
+      <!-- Template Main JS File -->
+      <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
