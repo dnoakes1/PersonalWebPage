@@ -583,7 +583,7 @@ section {
 }
 
 .about .image {
-  background: url("../img/me1.jpg") center no-repeat;
+  background: url("../img/Me1.jpg") center no-repeat;
   background-size: cover;
   min-height: 500px;
 }
