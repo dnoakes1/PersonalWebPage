@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Stormwater Risk Assessment</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Satisfy" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Laura - v2.1.0
+  * Template URL: https://bootstrapmade.com/laura-free-creative-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top  d-flex justify-content-center align-items-center ">
+
+    <nav class="nav-menu d-none d-lg-block">
+      <ul>
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#resume">Resume</a></li>
+          <li><a href="index.html#portfolio">Portfolio</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+  
+      </ul>
+    </nav><!-- .nav-menu -->
+
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Portfolio Details</h2>
+          <div>
+          <h3>Part 1: Flood Mapping</h3> 
+          </div>
+          
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li>Portfolio Details</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- Breadcrumbs Section -->
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <!-- Part 1 -->
+    <section class="portfolio-details">
+      <div class="container">
+
+        <div class="portfolio-details-container">
+
+          <div class="owl-carousel portfolio-details-carousel">
+            <img src="assets/img/portfolio/Carto/FloodAreas.jpg" class="img-fluid" alt="">
+            <img src="assets/img/portfolio/FloodAreas/cloudburst_popup.jpg" class="img-fluid" alt="">
+            <img src="assets/img/portfolio/FloodAreas/cloudburst_popup2.jpg" class="img-fluid" alt="">
+            <img src="assets/img/portfolio/FloodAreas/FulModel.JPG" class="img-fluid" alt="">
+            <img src="assets/img/portfolio/FloodAreas/Model.JPG" class="img-fluid" alt="">
+            <img src="assets/img/portfolio/FloodAreas/Model2.JPG" class="img-fluid" alt="">
+            <img src="assets/img/portfolio/FloodAreas/Model3.JPG" class="img-fluid" alt="">
+          </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+          <div class="portfolio-info">
+
+            <h3>Project information</h3>
+            <ul>
+              <li><strong>Category</strong>: ArcGIS Pro Scripting, Model Building, and AGOL Web Applications</li>
+              <li><strong>Client</strong>: Port Hope - Wastewater Management Department</li>
+              <li><strong>Project date</strong>: 01 April, 2020</li>
+              <!-- <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li> -->
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="portfolio-description">
+          <h2>Project Description</h2>
+          <p>
+            Land use and ground permeability are important factors to consider when assessing rainfall derived inflow and infiltration. This section looks at flood zones associated with a 90-minute, high intensity rainfall event (a cloudburst) and assesses which sections of the pipe network intersect these flood zones. The slider allows a user to see at what point a flood area will become fully saturated. The symbology for the pipe network shows areas that lay beneath these flood zones and are thus at risk of infiltration once a rainstorm event occurs.
+            <br>
+            To understand how this process works an example is illustrated below:
+            <br>
+            <br>
+            If a flood zones volume is 500 m3 and its watershed is 10,000 m2, the precipitation needed to fill the flood zone to its pour point is 500 m3 / 10,000 m2 = 0.05 m = 50 mm.
+            <br>
+            <br>
+            In order to predict areas along the pipe network that are at risk of being inundated by flood zones caused by cloud burst events an overlay analysis was performed to 
+            distinguish areas of concern along the pipe network. The pipe network was assumed to be able to remove a total of 20mm per hour which was added to the symbology when 
+            visualizing the final outputs. For example, values of 0 – 20mm in the FillUp field were labelled as 20– 40 mm when the symbology is applied to the map.
+            When performing the overlay analysis, the sanitary conduit and Flood Zone layer were input into the Identify tool. The tool computes the geometric intersection of the
+            input feature (The Sanitary Conduit) and the feature to identify (Flood Zones). It then adds the portion of the overlap to the attribute table as a new field which can then 
+            be symbolized to display the areas at risk along the sanitary conduit pipe network.
+          </p>
+          <br>
+          <p><b>Creating the Cloudburst Model</b></p>
+          <ul>
+            <li>Using a DEM layer of Port Hope, low lying areas less then .05m were filled to increase vertical accuracy of the model.</li>
+            <li>After small sinks were filled the value of 1 was applied to the cells if the flood areas were considered a flood zone, all other data received a ‘No Data’ value. This helped set up the tool with the preliminary flood zones in place but without any mathematical functions applied to them at this point.</li>
+            <li>Region Group tool was used to assemble all flood zones into a single layer</li>
+            <li>A Zonal statistics tool was then used to sum the elevation values and add them to a newly created field. A watershed was created to derive the flood zones.</li>
+            <li>Next, the Get Raster Properties tool was used to get each cell value and then perform a calculate field function on the flood zones to calculate the total volume of the flood area. It was then added to a new field in the attribute table.</li>
+            <li>The flood zones and the fill up field were combined to calculate the amount of rain (in millimeters) that must fall to fully fill the flood zone to its pour point. This was calculated by a simple equation: (flood zone volume(m3) / watershed area(m2)) * 1000 = Total Precipitation.</li>
+            <li>Finally, a Raster to polygon tool was used to convert the flood zones to individual polygons and then they were dissolved to create individual flood zones that contained; fill up volume (in meters cubed), amount of rain to fill the flood spot in a 90 minute burst (in millimeters), and the total area of the flood zone (in meters squared).</li>
+          </ul>
+        </div>
+      </div>
+    </section><!-- End Portfolio Details Section -->
+    
+    <!-- Part 2 -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h3>Part 2: Pipe Infrastructure Risk Analysis</h3> 
+        </div>
+      </div>
+    </section><!-- Breadcrumbs Section -->
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section class="portfolio-details">
+      <div class="container">
+
+        <div class="portfolio-details-container">
+
+          <div class="owl-carousel portfolio-details-carousel">
+            <img src="assets/img/portfolio/RiskTool/Process.JPG" class="img-fluid" alt="">
+            <img src="assets/img/portfolio/RiskTool/Script1.jpg" class="img-fluid" alt="">
+            <img src="assets/img/portfolio/RiskTool/RiskAssessmentExample.JPG" class="img-fluid" alt="">
+            <img src="assets/img/portfolio/RiskTool/WebTool.jpg" class="img-fluid" alt="">
+            <!-- <img src="assets/img/portfolio/RiskTool/Popup.jpg" class="img-fluid" alt="">
+            <img src="assets/img/portfolio/RiskTool/Popup2.jpg" class="img-fluid" alt=""> -->
+          </div>
+        </div>
+
+        <div class="portfolio-description">
+          <h2>Project Description</h2>
+          <p>
+            Creation of the risk assessment tool was a major milestone for this project. Several models were formulated in order to implement a tool that accurately modeled risk of surpassing max capacity during a rainstorm event.
+            <br>
+            <br>
+             To accurately visualize areas along the sanitary sewer network that are at risk of surpassing maximum capacity during a rainstorm event several parameters needed to be calculated. Those parameters include: Pipe Roughness, Dry Weather Flow, Max Capacity, and finally Rainfall Derived Inflow and Infiltration.
+            <br>
+            <br>
+
+            <b>Pipe Roughness</b>
+            <li>Pipe roughness was calculated by using a generic roughness coefficient for each pipe material type. Using a simple SQL equation, we updated the information in the table based on the material to represent the roughness of the pipe.</li>
+            <br>
+            
+            <b>Dry Weather Flow</b>
+            <li>To find the dry weather flow, the number of parcels connecting to the pipe network were calculated and an average output per property type was assumed based on the land classification (i.e. residential or industrial) and the total number of residents per parcel was considered to derive a total output from each lateral network into the larger pipe system in liters per minute(Table 5). Therefore, the sanitary waste generated per lateral in liters per minute was based on an estimate form the zoning number of residents per parcel.</li>
+            <br>
+            
+            <b>Max Capacity</b>
+            <li>Maximum capacity of the pipe network was calculated using the manning equation which is seen here. It was slightly modified to show the final output in liters per minute as to be consistent with all other calculations.</li>
+            <br>
+
+            <b>Calculating RDI</b>
+            <li>Rainfall Derived Infiltration (RDI) was given an average value based on the land use type that was most prominent in Port Hope which was urban residential. The soil type of Sandy Loam was assumed based on surrounding soil data obtained from OMAFRA. </li> 
+            <br>
+            <b>The variables used in the RDI calculation were as followes: </b>
+            <br>
+            C = Soil type and ease of permeability
+            <br>
+            I = Amount of Rainfall that is to occur
+            <br>
+            Aeff = Average size of a catchment surrounding the pipe segment where water from a rainfall event will infiltrate
+            <br>
+            <br>
+            <b>Finally,</b> a web solution was developed to display the results using AGOL (See Image 4 on the slider above).
+            <br>
+            <br>
+            <li>The rainfall derived inflow and infiltration risk assessment slider was beneficial for visualizing the effect that rainfall events have on the pipe network. The slider that was developed in ArcGIS Operations Dashboard will give Port Hope the opportunity to display areas along the pipe network that are at risk of surpassing max capacity under varying rainfall intensities.</li>
+            <br>
+            <li>The user can select segments along the pipe network that are at risk of surpassing max capacity to display several characteristics in pop-up format such as the street name, pipe length, pipe diameter, dry weather flow, sewer waste generated, and max capacity of the pipe segment.</li>
+            <br>
+            <li>It displays a second pop-up window for the layer at risk to show the amount of rain that must fall to for the individual pipe segment to reach maximum capacity. </li>
+
+
+          
+          </p>
+        </div>
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+    <!-- Part 3 -->
+    <section class="breadcrumbs">
+        <div class="container">
+  
+          <div class="d-flex justify-content-between align-items-center">
+            <h3>Part 3: Updating PACP Values</h3> 
+          </div>
+        </div>
+      </section><!-- Breadcrumbs Section -->
+  
+      <!-- ======= Portfolio Details Section ======= -->
+      <section class="portfolio-details">
+        <div class="container">
+  
+          <div class="portfolio-details-container">
+  
+            <div class="owl-carousel portfolio-details-carousel">
+              <img src="assets/img/portfolio/Carto/PACPViz.jpg" class="img-fluid" alt=""> 
+              <img src="assets/img/portfolio/RiskTool/PACPZoom.jpg" class="img-fluid" alt="">
+              <img src="assets/img/portfolio/RiskTool/PACP.jpg" class="img-fluid" alt="">
+              
+            </div>
+          </div>
+  
+          <div class="portfolio-description">
+            <h2>Image Descriptions</h2>
+            <p>  
+              The municipality of Port Hope uses the Pipeline Assessment Certification Program (PACP) to assess pipe conditions. PACP was developed by the National Association of Sewer 
+              Service Companies (NASSCO). The rating system includes three categories: structural, maintenance, and overall pipe conditions. PACP values combined make up Quick Structural 
+              Scores (QSRs), which are used to evaluate pipe segments for potential capital or maintenance projects. The quick scoring system consists of 4-digit numbers based on the most 
+              severe and second most severe structural or maintenance defects in a pipe segment. These scores are denoted as follows:
+              <br>
+              <br>
+              <b>QSR = WXYZ</b>
+              <br>
+              <li>W = most severe pipe defect (between 0 & 5)</li>
+              <li>X = number of defects in the most severe category</li>
+              <li>Y = second most severe pipe defect</li>
+              <li>Z = the number of defects in the most severe category</li>
+              <br>
+              For example, a pipe with a QSR value of 4213 would indicate that there are two defects that were rated a 5, and three defects that were rated a 1. The table below describes the NASSCO grading criteria.
+              <br>
+              <br>
+
+              <li>QSR ratings were provided by the municipality of Port Hope’s wastewater department. An existing shapefile of their pipe network was edited to include the new QSR and 
+              PACP values using ArcGIS Pro. The updated shapefile was used to create static maps, as well as web maps in ArcGIS Online. The material produced using the QSR and PACP
+              values will aid the municipality in making educated and informed decisions related to the maintenance, repairs, and replacement of wastewater infrastructure.</li>
+            </p>
+          </div>
+        </div>
+      </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+          <h3>Daniel Noakes</h3>
+          <p>GIS Applications Specialist and Data Analyst</p>
+          <div class="social-links">
+            <!-- <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+            <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a> -->
+            <a href="https://www.linkedin.com/in/daniel-noakes-2576401a7/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+          </div>
+          <div class="copyright">
+            &copy; Copyright <strong><span>Dan</span></strong>. All Rights Reserved
+          </div>
+          <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/laura-free-creative-bootstrap-theme/ -->
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> and edited by Daniel Noakes
+          </div>
+        </div>
+      </footer><!-- End Footer -->
+    
+      <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+    
+      <!-- Vendor JS Files -->
+      <script src="assets/vendor/jquery/jquery.min.js"></script>
+      <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+      <script src="assets/vendor/php-email-form/validate.js"></script>
+      <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+      <script src="assets/vendor/counterup/counterup.min.js"></script>
+      <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+      <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+      <script src="assets/vendor/venobox/venobox.min.js"></script>
+    
+      <!-- Template Main JS File -->
+      <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
