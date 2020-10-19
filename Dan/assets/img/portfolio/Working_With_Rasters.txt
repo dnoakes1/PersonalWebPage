@@ -1,0 +1,53 @@
+# Assignment4 - Script1
+# April12th 2020
+# This script creates a GDB with the current date and time as the name and then will copy all rasters to the new GDB
+
+# Imports system modules amd imports environment from arcpy
+import arcpy, os, datetime, zipfile, ftplib
+from arcpy import env
+
+# Set the workspace environment
+path = env.workspace = os.getcwd()
+
+# Set local variables, date time, and execute CreateFileGDB
+gdbName = datetime.datetime.now()
+gdbName = gdbName.strftime("%a%B%d_%H%M%p" + ".gdb") 
+file_Location = env.workspace
+fileGDB = arcpy.CreateFileGDB_management(file_Location, gdbName)
+
+# Create a List to hold raster files
+rasters = arcpy.ListRasters()
+rasterList = []
+
+# Use a loop to iterate through all raster files and add them to the newly created GDB
+for raster in rasters:
+     z = os.path.join(env.workspace, raster)
+     rasterList.append(z)
+     
+inList = (";".join([i for i in rasterList]))
+# print(inList)
+gdb = arcpy.RasterToGeodatabase_conversion(inList, fileGDB)
+
+
+##########################################################################################
+# This Section adds the GDB to a zip file
+# Zip location
+zipy = datetime.datetime.now()
+zipy = zipy.strftime("%a%B%d_%H%M%p") 
+zipName = path + "\\" + zipy + ".zip"
+
+# Creates the empty zip file and opens it for writing
+myzipfile = zipfile.ZipFile(zipName, 'w') ##, zipfile.ZIP_DEFLATED
+x = path + "\\" + gdbName
+for root, dirs, files in os.walk(path):
+    if root == x:
+        for f in files:
+            myzipfile.write(os.path.join(root, f))
+myzipfile.close()
+
+
+# # Another snippit of code than can zip a GDB - FOR PERSONAL REFERENCE
+# with zipfile.ZipFile(zipName, 'w') as zipObj:
+#     zipObj.write(x)
+# zipObj.close()
+# print "Operation Complete"

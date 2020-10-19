@@ -1,0 +1,34 @@
+# Description: Creates an XY layer and exports it to a layer file
+
+# import system modules 
+import arcpy
+
+# Set environment settings
+arcpy.env.workspace = r"C:\Users\DanNo\Documents\GEOM67_ProblemSolvingandPrograming\Assignment 2\Deliverable3"
+
+try:
+    # Set the local variables
+    in_Table = "Assgnment2D2.csv"
+    x_coords = "Longitude"
+    y_coords = "Latitude"
+    #z_coords = "POINT_Z"
+    out_Layer = "h_Pts"
+    hurricaneData = r"C:\Users\DanNo\Documents\GEOM67_ProblemSolvingandPrograming\Assignment 2\Deliverable3\h_PTS.lyr"
+
+    # Set the spatial reference
+    #spRef = r"Coordinate Systems\Geographic Coordinate Systems\World\WGS 1984.prj"
+    spRef = arcpy.SpatialReference("WGS 1984")  
+
+    # Make the XY event layer...
+    arcpy.MakeXYEventLayer_management(in_Table, x_coords, y_coords, out_Layer, spRef)
+
+    # # Save to a layer file
+    # print "Saving Layer File"
+    # arcpy.SaveToLayerFile_management(out_Layer, saved_Layer)
+
+    print "Copying features to feature class"
+    arcpy.CopyFeatures_management(out_Layer, hurricaneData)
+
+# Code inspiration http://desktop.arcgis.com/en/arcmap/10.3/tools/data-management-toolbox/make-xy-event-layer.htm
+except Exception as err:
+    print (err.args[0])

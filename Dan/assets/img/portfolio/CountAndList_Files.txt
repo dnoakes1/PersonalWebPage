@@ -1,0 +1,59 @@
+# imports system modules
+import arcpy
+import os
+
+# imports environment from arcpy
+from arcpy import env
+
+# set the workspace environment
+# for future use ofthis code: Change the location of the workspace to the one on the companies personal computer
+env.workspace = "C:/Users/DanNo/Documents/GEOM73/Assignment1DataPackage/CountEverything"
+
+# This finds all files in the workspace that have a .shp or .xlsx at the end of the file name
+datasets = arcpy.ListFiles("*shp")
+
+xlsxFile = arcpy.ListFiles("*xlsx")
+
+# These print a list of the names for each .shp file and . xlsx file
+for dataset in datasets:
+     print(dataset)
+
+for dataset in xlsxFile:
+     print(dataset)
+
+
+# The len() function counts the number of specified files in the workspace
+number_files_shp = len(datasets)
+print "There are ", number_files_shp, ".shp files"
+
+number_files_xlsx = len(xlsxFile)
+print "There are ", number_files_xlsx, ".xlsx files"
+
+#################################################################################
+
+# Prints out the total number of rows or features for each shapefile or Excel file
+print
+print "The length of rows in each .shp file is as follows..."
+for row in datasets:    
+    print len(row)
+
+print
+print "The length of rows for the .xlsx file(s) is as follows..."
+for row in xlsxFile:    
+    print len(row)
+
+#################################################################################
+# code help from https://pro.arcgis.com/en/pro-app/arcpy/functions/listfields.htm
+# Create a Describe object
+
+fcs = arcpy.ListFeatureClasses("*", "point")
+print fcs
+print
+# For each feature class in the list of feature classes
+# ListFields Function is used to return a list of point shapefiles
+
+for fc in fcs: 
+     field_names = [f.name for f in arcpy.ListFields(fc)]
+     print "The shapefile: " + str(fc) + " contains the following point type fields"
+     print str(field_names)
+     print

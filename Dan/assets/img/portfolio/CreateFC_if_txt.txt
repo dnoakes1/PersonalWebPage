@@ -1,0 +1,52 @@
+# Author: Daniel Noakes
+# Script 1 - Assignment #2
+# GEOM73 - Fleming College
+# 02/14/20
+
+# Imports system modules amd imports environment from arcpy
+import arcpy, arcgisscripting, os, fileinput,fnmatch
+from arcpy import env
+
+# Set the workspace environment
+# For future use of this code: Change the location of the workspace to one from the companies personal computer
+env.workspace = "C:/Users/DanNo/Documents/GEOM73/Assignment2DataPackage/SpatialRealtors"
+
+# Set local variables and execute CreateFileGDB
+out_name = "Realtor_Tracks.gdb"
+file_Location = env.workspace
+fileGDB = arcpy.CreateFileGDB_management(file_Location, out_name)
+
+# Set local variables and create a spatial reference object
+out_dataset_path = fileGDB
+out_name_fc = "Realtors"
+sr = arcpy.SpatialReference("NAD 1983 UTM Zone 12N")
+
+# Execute CreateFeaturedataset 
+feature_dataset = arcpy.CreateFeatureDataset_management(out_dataset_path, out_name_fc, sr)
+
+# Create a for loop to iterate trough .txt files and create feature classes based off of their names
+
+for filename in arcpy.ListFiles("*txt"):
+    filePath = file_Location + "\\" + filename
+    
+    if filename.endswith(".txt"):
+        fcName = os.path.splitext(filename)
+        outName = fcName[0]                                        
+        outFolder = feature_dataset
+        geometry_type = "POINT"
+        
+        # Creating the feature class from text file
+        new_FC = arcpy.CreateFeatureclass_management(outFolder, outName, geometry_type)
+
+        # Use insert cursor to input xy values into the new feature class from the .txt files
+        counter = 0
+        point = arcpy.Point()
+        for row in fileinput.input(filePath):
+            if not fileinput.isfirstline():
+                cursor = arcpy.da.InsertCursor(new_FC[counter],["SHAPE@XY"])
+                point.ID, point.X, point.Y = row.split(" ") # Read coordinates to create point objects
+                cursor.insertRow([arcpy.Point(int(point.ID), float(point.X),float(point.Y))]) 
+                counter +=1
+                fileinput.close() # Insert the point object by using the cursor fileinput.close() 
+        # Delete the cursor
+                del cursor, row

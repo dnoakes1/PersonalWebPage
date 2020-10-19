@@ -1,0 +1,56 @@
+import glob, os, qgis.analysis
+vectorlayer = 'C:/Photogrammetry/Highway/1008_hwy_grid.shp'
+rasterfolder = 'C:/Photogrammetry/Highway/1008_hwy_ortho-dsm.tif'
+os.chdir(rasterfolder)
+    qgis.analysis.QgsZonalStatistics(vectorlayer, rasterfolder, attributePrefix=band1, rasterBand=1, stats=QgsZonalStatistics.Statistics(QgsZonalStatistics.Mean)).calculateStatistics(None)
+    qgis.analysis.QgsZonalStatistics(vector, rasterfolder, attributePrefix=band2, rasterBand=2, stats=QgsZonalStatistics.Statistics(QgsZonalStatistics.Mean)).calculateStatistics(None)
+    qgis.analysis.QgsZonalStatistics(vector, rasterfolder, attributePrefix=band3, rasterBand=3, stats=QgsZonalStatistics.Statistics(QgsZonalStatistics.Mean)).calculateStatistics(None)
+    qgis.analysis.QgsZonalStatistics(vector, rasterfolder, attributePrefix=band4, rasterBand=4, stats=QgsZonalStatistics.Statistics(QgsZonalStatistics.Mean)).calculateStatistics(None)
+    qgis.analysis.QgsZonalStatistics(vector, rasterfolder, attributePrefix=band5, rasterBand=5, stats=QgsZonalStatistics.Statistics(QgsZonalStatistics.Mean)).calculateStatistics(None)
+    qgis.analysis.QgsZonalStatistics(vector, rasterfolder, attributePrefix=band5, rasterBand=6, stats=QgsZonalStatistics.Statistics(QgsZonalStatistics.Mean)).calculateStatistics(None)
+    
+    
+    
+    
+ from qgis.analysis import QgsZonalStatistics
+
+#specify polygon shapefile vector
+polygonLayer = QgsVectorLayer('C:/Photogrammetry/Highway/1008_hwy_grid.shp', "ogr") 
+
+# specify raster filename
+rasterFilePath = QgsRasterLayer ('C:/Photogrammetry/Highway/1008_hwy_ortho-dsm.tif')
+
+# usage - QgsZonalStatistics (QgsVectorLayer *polygonLayer, const QString &rasterFile, const QString &attributePrefix="", int rasterBand=1)
+zoneStat = QgsZonalStatistics (polygonLayer, rasterFilePath, 'pre-', 1, QgsZonalStatistics.Mean)
+zoneStat.calculateStatistics(None)
+
+##################################
+
+
+import os
+from PyQt4.QtGui import *
+from PyQt4.QtCore import *
+from qgis.core import *
+from qgis.utils import iface
+from qgis.analysis import QgsZonalStatistics
+
+shp_fldr = "/media/psf/Home/Documents/Projects/NLCD/blocks_albers"
+raster = "/media/psf/Home/Documents/Projects/data/NLCD/2016/NLCD_2016_Impervious_L48_20190405.img"
+
+f_lst = os.listdir(shp_fldr)
+
+for fl in f_lst:
+
+    if fl.find(".shp") > 0 and fl.find(".xml") < 0:
+
+        print "start: " + fl
+        shp_fl = os.path.join(shp_fldr,fl)
+
+        polygonLayer = QgsVectorLayer(shp_fl, fl, "ogr")
+        polygonLayer.startEditing()
+        zoneStat = QgsZonalStatistics (polygonLayer, rasterFilePath, 'bnd-', 1, QgsZonalStatistics.Mean)
+
+        zoneStat.calculateStatistics(None)
+        polygonLayer.commitChanges()
+
+        print "end: " + fl

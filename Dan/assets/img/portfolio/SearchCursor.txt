@@ -1,0 +1,53 @@
+# Author: Daniel Noakes
+# 02/12/20
+
+# imports system modules amd imports environment from arcpy
+import arcpy, arcgisscripting, os, fileinput
+from arcpy import env
+
+# set the workspace environment
+# For future use of this code change path to one from the current computer
+workingFolder = env.workspace = "C:/Users/DanNo/Documents/GEOM73/DNoakes_GEOM73_Practical/practical_data"
+
+
+# Set local variables and execute CreateFileGDB
+out_name = "Practical.gdb"
+file_Location = workingFolder
+fileGDB = arcpy.CreateFileGDB_management(file_Location, out_name)
+
+
+# Insert the .shp files as a feature class into the GDB
+for filename in arcpy.ListFiles("*.shp"):
+    in_features =  filename
+    out_path = fileGDB
+    fcName = os.path.splitext(filename)
+    out_name = fcName[0]
+
+    new_FC = arcpy.FeatureClassToFeatureClass_conversion(in_features, out_path, out_name)
+
+
+# Use SearchCursor to print a list of specified tokens and fields
+with arcpy.da.SearchCursor(new_FC,(["OID@", "SHAPE@XY", "Colour"])) as cursor:
+    for row in cursor:
+        values = cursor.next()
+        oid = row[0]
+        coordXY = row[1]
+        colourValues = row[2]
+        print oid, coordXY, colourValues
+
+
+# Fix broken file path
+lyrFile = arcpy.mapping.Layer(r"C:\Users\DanNo\Documents\GEOM73\DNoakes_GEOM73_Practical\practical_data\practical.lyr") 
+for lyr in arcpy.mapping.ListLayers(lyrFile):
+  if lyr.name == "practical":  
+    lyr.replaceDataSource(fileGDB, "FILEGDB_WORKSPACE", "practical")  
+fixedLayer = lyrFile.saveACopy((workingFolder + "\\" + "practical2.lyr"))  
+
+
+# Create new Blank MXD and add the fixed layer file
+mxd = arcpy.mapping.MapDocument(r"C:\Users\DanNo\Documents\GEOM73\DNoakes_GEOM73_Practical\practical_data\Blank.mxd")
+df = arcpy.mapping.ListDataFrames(mxd, "Layers")[0]
+insertLayer = arcpy.mapping.Layer("practical2.lyr")
+arcpy.mapping.AddLayer(df, insertLayer, "BOTTOM")
+mxd2 = mxd.saveACopy(workingFolder + "\\" + "Blank2.mxd")  
+del mxd, mxd2

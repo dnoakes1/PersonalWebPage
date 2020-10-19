@@ -1,0 +1,29 @@
+# imports system modules
+import arcpy
+import os
+
+# imports environment from arcpy
+from arcpy import env
+
+# set the workspace environment
+env.workspace = "C:/Users/DanNo/Documents/GEOM73/Assignment1DataPackage/ItalyPictures"
+
+# uses the following function to create an empty GDB that the geo-tagged feature class photos will be stored in
+result = arcpy.CreateFileGDB_management(env.workspace, "GeoTagged_Photos")
+
+# Set local variables for photos with GPS points and a table detailing the ones that do not
+inFolder = env.workspace
+outFeatures = "GeoTagged_Photos.gdb/photos_points"
+badPhotosList = "GeoTagged_Photos.gdb/photos_noGPS"
+photoOption = "ONLY_GEOTAGGED"
+attachmentsOption = "ADD_ATTACHMENTS"
+
+# Creates a buffer to highlight a 1 mile region around the geotagged point
+buffers = "GeoTagged_Photos.gdb/photos_points_buffer"
+bufferDist = "1 Miles"
+
+# uses the following function to add geotagged photos as points to a new feature class using the parameters described above
+arcpy.GeoTaggedPhotosToPoints_management(inFolder, outFeatures, badPhotosList, photoOption, attachmentsOption)
+
+# uses buffer analysis tool to add the 1 mile buffer as a feature class
+arcpy.Buffer_analysis(outFeatures, buffers, bufferDist)

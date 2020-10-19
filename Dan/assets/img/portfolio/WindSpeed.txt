@@ -1,0 +1,127 @@
+#Name: Hurricane Wind Speen Calculator: Version 1.2. Date Modified: 09.29.19. 
+#Modifications Include: Ability to choose units for pressure values and windspeed units.
+#This program was creted to calculate the wind speed of a hurricane using the formula: vm= a (pn-pc) x
+#Formula Breakdown: Vms is maximum wind speed in knots. a is a constant dependent on location (19-(latitude/5)) (13.6 in Atlantic and E. Pacific, 15 or 14.2 in Indian Ocean). pn is external pressure in mb (ambient/environmental). pc is minimum central pressure in mb (center of eye). 
+
+import math
+
+try:
+
+    while True:
+        print "Hurricane Wind Speed Computation"
+
+        airpressuretype = raw_input("Type of air pressure: hg or mb: ")
+
+        if airpressuretype == "mb":
+            externalpressure = float(raw_input("Please Enter External/Ambient Pressure in mb:  ")) # this variable is 'pn' in the equation
+
+            if externalpressure > 1200 or externalpressure < 800: #Normal External Pressure is usually between 1000mb and 920mb. URL Source: https://sciencing.com/barometric-pressure-hurricanes-22734.html
+                print "Error, external pressure must be in the range of 1200mb to 800mb."
+
+            centralpressure = float(input("Please Enter Minimum Central Pressure:   ")) # this variable is 'pc' in the equation
+
+            if centralpressure > 1000 or centralpressure < 700: #Normal Central Pressure is usually between 850mb and 750mb. URL Source: https://sciencing.com/barometric-pressure-hurricanes-22734.html
+                print "Error, central pressure must be in the range of 1000mb and 700mb."
+
+            latitude = float(input("Please Enter Your Latitude as a Decimal:   ")) # latitude is used to calculate 'a' in the equation
+
+            if latitude > 45  or latitude < -10: #Normal is between a latitude of 5 and 30. URL Source https://www.nhc.noaa.gov/climo/
+                print "Error, latitude must not be above 45 or below -10."
+
+            else:
+                windspeedunits = raw_input("Select Output Units for Windspeed. Select kmh for kilometers per hour or kn for knots:")
+
+                aconstant = float(19 - ( latitude / 5)) # this is the calculation for 'a'
+
+                xvariable = float(0.6 * (1 - ((externalpressure - centralpressure) / 215))) # this is the calculation for 'x'
+
+                windspeed = float(aconstant * ((externalpressure - centralpressure) ** xvariable)) # this is the equation for windspeed Vm = a(pn - pc)^x
+
+                print "Output units", windspeedunits
+
+                print "The Hurricane has:"
+
+                if windspeedunits == "kmh":
+                    windspeed = windspeed * 1.852
+                    print "Wind Speed in (kmh)=   ", round(windspeed, 2) # the final value is rounded to two decimal places to better represent the accuracy of the data  
+                else:
+                    print "Wind Speed in (kn)=   ", round(windspeed, 2) # the final value is rounded to two decimal places to better represent the accuracy of the data  
+
+                
+                
+                print "Central Pressure (mb):   ", centralpressure
+                print "External Pressure (mb):   ", externalpressure
+                print "Latitude of Hurricane (decimal degree):   ", latitude
+
+        else:
+            externalpressure = float(raw_input("Please Enter External/Ambient Pressure in hg:  ")) # this variable is 'pn' in the equation
+
+
+            if externalpressure > 35 or externalpressure < 24: #Normal External Pressure is usually between 1000mb and 920mb. URL Source: https://sciencing.com/barometric-pressure-hurricanes-22734.html
+                print "Error, external pressure must be in the range of 35hg to 24hg."
+            
+
+            centralpressure = float(input("Please Enter Minimum Central Pressure:   ")) # this variable is 'pc' in the equation
+
+            if centralpressure > 30 or centralpressure < 20 : #Normal Central Pressure is usually between 850mb and 750mb. URL Source: https://sciencing.com/barometric-pressure-hurricanes-22734.html
+                print "Error, central pressure must be in the range of 30hg and 20hg."
+
+            latitude = float(input("Please Enter Your Latitude as a Decimal:   ")) # latitude is used to calculate 'a' in the equation
+
+            if latitude > 45  or latitude < -10: #Normal is between a latitude of 5 and 30. URL Source https://www.nhc.noaa.gov/climo/
+                print "Error, latitude must not be above 45 or below -10."
+
+            else:
+                windspeedunits = raw_input("Select Output Units for Windspeed. Select kmh for kilometers per hour or kn for knots:")
+
+                aconstant = float(19 - ( latitude / 5)) # this is the calculation for 'a'
+
+                xvariable = float(0.6 * (1 - ((externalpressure - centralpressure) / 215))) # this is the calculation for 'x'
+
+                windspeed = float(aconstant * ((externalpressure - centralpressure) ** xvariable)) # this is the equation for windspeed Vm = a(pn - pc)^x
+
+                print "Output units", windspeedunits
+
+                print "The Hurricane has:"
+
+                if windspeedunits == "kmh":
+                    windspeed = windspeed * 1.852
+                    print "Wind Speed in (kmh)=   ", round(windspeed, 2) # the final value is rounded to two decimal places to better represent the accuracy of the data  
+                else:
+                    print "Wind Speed in (kn)=   ", round(windspeed, 2) # the final value is rounded to two decimal places to better represent the accuracy of the data  
+
+                
+                print "Central Pressure (hg):   ", centralpressure
+                
+                print "External Pressure (hg):   ", externalpressure
+                
+                print "Latitude of Hurricane (decimal degree):   ", latitude
+        
+        answer = raw_input("Enter weather you want to calculate another wind speed Y/N: ")
+        answer = answer.upper()
+        answer = answer.rstrip("\r")
+
+        if answer == "N":
+            print "Thanks for using the program!"
+            break
+
+#Creates exceptions for multiple types of errors
+except Exception, message:
+    print "An error occured. Please try again."
+    print message
+    
+except NameError:
+    print "Variable is not found in local space. Please try again."
+
+except IndexError:
+    print "Index of a sequence is out of range. Please try again."
+
+except TypeError:
+    print "You cant add strings and integers. Please try again."
+
+except ValueError:
+    print "Value must be a number. Please try again."
+
+except ZeroDivisionError:
+    print "You can't divide by zero. Please try again."
+
